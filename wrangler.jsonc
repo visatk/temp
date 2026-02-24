@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "temp",
+  "main": "src/server.ts",
+  "compatibility_date": "2025-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "DOMAIN": "visatk.us"
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "TempMailAgent",
+        "class_name": "TempMailAgent"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["TempMailAgent"]
+    }
+  ],
+  "ai": {
+    "binding": "AI"
+  }
+}
